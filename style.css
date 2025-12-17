@@ -1,0 +1,344 @@
+:root {
+  --primary: #00d4ff; /* Neon Blue */
+  --secondary: #ff007a; /* Neon Pink */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --text-color: #ffffff;
+  --danger: #ff4757;
+}
+
+/* --- SCREEN VISIBILITY LOGIC (Fixes the overlapping issue) --- */
+.screen {
+  display: none; /* Hide everything by default */
+}
+
+.screen.active {
+  display: block; /* Only show the active screen */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+
+  /* ANIMATED BACKGROUND */
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #4a00e0);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+
+  /* GLASSMORPHISM CARD EFFECT */
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+h1 {
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+h2 {
+  font-weight: 400;
+}
+
+/* --- BUTTONS --- */
+.btn,
+.q-btn {
+  font-family: "Poppins", sans-serif;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.difficulty-buttons .btn {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.difficulty-buttons .btn:hover {
+  background: white;
+  color: #302b63;
+  box-shadow: 0 0 15px white;
+  transform: translateY(-2px);
+}
+
+/* Specific Difficulty Colors on Hover */
+.easy:hover {
+  background: #00d4ff !important;
+  color: #000 !important;
+  box-shadow: 0 0 20px #00d4ff !important;
+}
+.medium:hover {
+  background: #ff007a !important;
+  color: #fff !important;
+  box-shadow: 0 0 20px #ff007a !important;
+}
+.hard:hover {
+  background: #ff4757 !important;
+  color: #fff !important;
+  box-shadow: 0 0 20px #ff4757 !important;
+}
+
+/* Question Grid Buttons */
+.q-btn {
+  background: rgba(0, 0, 0, 0.3);
+  color: #ddd;
+  border: 1px solid var(--glass-border);
+  font-size: 0.9rem;
+  padding: 15px;
+}
+
+.q-btn:hover {
+  background: var(--primary);
+  color: #000;
+  transform: scale(1.02);
+}
+
+/* --- DROPDOWN --- */
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  outline: none;
+}
+select:focus {
+  border-color: var(--primary);
+}
+
+/* --- GAME UI --- */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.metric span {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.question-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* --- LOG --- */
+.clue-log-container {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  height: 200px;
+  overflow-y: auto;
+  text-align: left;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#clue-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#clue-list li {
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 3px solid var(--primary);
+  animation: slideIn 0.3s ease;
+}
+
+/* Answer Colors */
+.answer-positive {
+  color: #00d4ff;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 212, 255, 0.4);
+}
+.answer-negative {
+  color: #ff4757;
+  font-weight: bold;
+}
+.answer-neutral {
+  color: #aaa;
+}
+.answer-uncertain {
+  color: #ffce00;
+}
+
+/* --- INPUT --- */
+.guess-area {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+input[type="text"] {
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  text-align: center;
+}
+input[type="text"]:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--primary);
+}
+
+.submit-btn {
+  background: var(--primary);
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+/* --- MODAL --- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background: #1e1e1e; /* Solid background for readability */
+  border: 1px solid var(--primary);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Add to style.css */
+
+.clue-img {
+  max-width: 150px;
+  border-radius: 10px;
+  margin-top: 5px;
+  border: 2px solid var(--primary);
+
+  /* THE BLUR TRICK: Hides text but shows color/vibe */
+  filter: blur(5px);
+  transition: filter 0.5s ease;
+}
+
+/* Optional: Allow user to hover to peek slightly better? 
+   Or keep it blurred to prevent cheating. */
+.clue-img:hover {
+  filter: blur(2px); /* Clears up slightly on hover */
+}
+
+.lyric-text {
+  font-style: italic;
+  color: #ffd700; /* Gold color for lyrics */
+  font-family: "Georgia", serif;
+  margin-top: 5px;
+  display: block;
+}

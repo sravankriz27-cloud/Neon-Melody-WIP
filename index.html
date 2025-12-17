@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Detective: Reverse Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Gemini_Generated_Image_64ygti64ygti64yg-removebg-preview.png" type="image/png">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🎵 Song Detective</h1>
+            <p>You have 20 questions to find the hidden song.</p>
+        </header>
+
+        <div id="start-screen" class="screen active">
+            <h2>Select Your Challenge</h2>
+
+            <div class="filter-container">
+                <label for="genre-select">Preferred Genre:</label>
+                <select id="genre-select">
+                    <option value="all">🎲 Surprise Me (Any)</option>
+                    <option value="pop">🎤 Pop</option>
+                    <option value="k-pop">🇰🇷 K-Pop</option>
+                    <option value="hip-hop">🎧 Hip-Hop/Rap</option>
+                    <option value="rock">🎸 Rock</option>
+                    <option value="r&b">🎹 R&B</option>
+                </select>
+            </div>
+
+            <p>Select Difficulty to Start:</p>
+            <div class="difficulty-buttons">
+                <button class="btn easy" onclick="startGame('easy')">
+                    Easy <br><span>(Global Hits)</span>
+                </button>
+                <button class="btn medium" onclick="startGame('medium')">
+                    Medium <br><span>(Past Eras / 2010s)</span>
+                </button>
+                <button class="btn hard" onclick="startGame('hard')">
+                    Hard <br><span>(Niche / B-Sides)</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen hidden">
+            <div class="status-bar">
+                <div class="metric">Questions Left: <span id="question-count">20</span></div>
+                <div class="metric">Difficulty: <span id="current-difficulty">-</span></div>
+            </div>
+
+            <div class="interaction-area">
+                <h3>Choose a Question:</h3>
+                <p class="subtext">Options shuffle after every turn.</p>
+
+                <div class="question-grid" id="dynamic-options">
+                    <button class="q-btn" onclick="handleQuestionClick(0)">Option 1</button>
+                    <button class="q-btn" onclick="handleQuestionClick(1)">Option 2</button>
+                    <button class="q-btn" onclick="handleQuestionClick(2)">Option 3</button>
+                    <button class="q-btn" onclick="handleQuestionClick(3)">Option 4</button>
+                </div>
+            </div>
+
+            <div class="clue-log-container">
+                <h3>Investigation Log</h3>
+                <ul id="clue-list"></ul>
+            </div>
+
+            <div class="guess-area">
+                <input type="text" id="guess-input" placeholder="Enter song title...">
+                <button class="btn submit-btn" onclick="submitGuess()">Make Accusation</button>
+            </div>
+        </div>
+
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="modal-title">You Won!</h2>
+                <p id="modal-message">The song was [Song Name]</p>
+                <button class="btn" onclick="location.reload()">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
