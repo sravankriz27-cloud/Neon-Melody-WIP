@@ -1,8 +1,8 @@
 // ==========================================
 // 0. SPOTIFY CONFIGURATION
 // ==========================================
-const clientId = "46046e0164f64d928c7ee75b441f13c2";
-const clientSecret = "034073a2828b4e5684371e9721870f74";
+const clientId = "YOUR_CLIENT_ID_HERE";
+const clientSecret = "YOUR_CLIENT_SECRET_HERE";
 
 // Helper: Get Access Token
 async function getSpotifyToken() {
@@ -3701,4 +3701,5 @@ function endGame(win) {
         title.style.color = "#cf6679";
         msg.innerHTML = `<img src="${imgUrl}" style="width:100px; border-radius:10px; opacity: 0.5; margin-bottom:10px;"><br>You ran out of questions!<br>The song was <strong>${currentSong.title}</strong>.<br>${spotifyPlayer}`;
     }
+
 }
