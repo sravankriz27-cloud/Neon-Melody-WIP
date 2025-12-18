@@ -1,6 +1,6 @@
 # 🎵 Neon-Melody: The Ultimate Song Guessing Game
 
-![Project Banner](https://via.placeholder.com/1000x300/0a0010/a45ee5?text=Neon+Melody+Game)
+![Project Banner](https://i.pinimg.com/736x/fb/11/9c/fb119c874f2d591f408e282d0efed052.jpg)
 
 > A logic-based web game where players deduce a hidden song by asking the system strategic questions. Featuring a "Midnight & Lilac" aesthetic, smart exclusion logic, and Spotify integration.
 
