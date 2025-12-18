@@ -38,11 +38,11 @@ Follow these instructions to get a copy of the project running on your local mac
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/yourusername/neon-melody-game.git](https://github.com/yourusername/neon-melody-game.git)
+    git clone [https://github.com/yourusername/Neon-Melody-WIP.git](https://github.com/yourusername/Neon-Melody-WIP.git)
     ```
 2.  **Navigate to the project folder:**
     ```bash
-    cd neon-melody-game
+    cd Neon-Melody-WIP
     ```
 3.  **Open `index.html`:**
     * If using VS Code, right-click `index.html` and select **"Open with Live Server"**.
