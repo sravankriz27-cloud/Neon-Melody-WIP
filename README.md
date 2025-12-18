@@ -1,4 +1,4 @@
-# 🎵 Neon-Melody: The Ultimate Song Guessing Game
+# 🎵 Neon-Melody: A Song Guessing Game
 
 ![Project Banner](https://i.pinimg.com/736x/fb/11/9c/fb119c874f2d591f408e282d0efed052.jpg)
 
